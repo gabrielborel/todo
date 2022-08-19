@@ -1,4 +1,4 @@
-import { CreateTaskArea } from '../../components/CreateTask';
+import { CreateTaskForm } from '../../components/CreateTaskForm';
 import { Header } from '../../components/Header';
 import styles from './App.module.scss';
 
@@ -8,7 +8,7 @@ export default function App() {
       <Header />
 
       <section className={styles.container}>
-        <CreateTaskArea />
+        <CreateTaskForm />
       </section>
     </main>
   );

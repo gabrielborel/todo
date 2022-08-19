@@ -2,7 +2,7 @@ import styles from './CreateTask.module.scss';
 import { PlusCircle } from 'phosphor-react';
 import { ChangeEvent, FormEvent, useState } from 'react';
 
-export const CreateTaskArea = () => {
+export const CreateTaskForm = () => {
   const [taskValue, setTaskValue] = useState('');
 
   const handleTaskInputChange = (e: ChangeEvent<HTMLInputElement>) => setTaskValue(e.target.value);
