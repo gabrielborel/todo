@@ -1,6 +1,6 @@
 import { CreateTaskForm } from '../../components/CreateTaskForm';
 import { Header } from '../../components/Header';
-import { Tasks } from '../../components/Tasks';
+import { TasksList } from '../../components/TasksList';
 import styles from './App.module.scss';
 
 export default function App() {
@@ -11,7 +11,7 @@ export default function App() {
       <section className={styles.container}>
         <CreateTaskForm />
 
-        <Tasks />
+        <TasksList />
       </section>
     </main>
   );
