@@ -1,25 +1,24 @@
 import { useState } from 'react';
-import { ClipboardText, Trash, Check } from 'phosphor-react';
+import { ClipboardText } from 'phosphor-react';
 import styles from './Tasks.module.scss';
-import classNames from 'classnames';
 import { Task } from './Task';
 
 export const TasksList = () => {
   const [tasks, setTasks] = useState([
     {
-      id: 1,
+      id: `1`,
       content:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas magni, nulla autblanditiis deserunt',
       completed: false,
     },
     {
-      id: 2,
+      id: `2`,
       content:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas magni, nulla autblanditiis deserunt',
       completed: true,
     },
     {
-      id: 3,
+      id: `3`,
       content:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas magni, nulla autblanditiis deserunt',
       completed: false,
@@ -45,9 +44,7 @@ export const TasksList = () => {
             <p>Crie tarefas e organize seus itens a fazer</p>
           </div>
         ) : (
-          tasks.map(({ completed, content, id }) => (
-            <Task completed={completed} content={content} id={id} key={id} />
-          ))
+          tasks.map((task) => <Task task={task} />)
         )}
       </div>
     </section>

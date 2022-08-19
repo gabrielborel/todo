@@ -15,7 +15,7 @@ export const Task = ({ task }: TaskProps) => {
       })}
     >
       <button key={task.id} className={styles.checkBox}>
-        {task.completed ? <Check size={14} weight='bold' /> : ''}
+        {task.completed ? <Check size={13.5} weight='bold' /> : ''}
       </button>
 
       <p className={styles.taskContent}>{task.content}</p>

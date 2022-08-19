@@ -5,10 +5,13 @@ import { ChangeEvent, FormEvent, useState } from 'react';
 export const CreateTaskForm = () => {
   const [taskValue, setTaskValue] = useState('');
 
-  const handleTaskInputChange = (e: ChangeEvent<HTMLInputElement>) => setTaskValue(e.target.value);
+  const handleTaskInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setTaskValue(e.target.value);
+  };
 
   const handleCreateNewTask = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!taskValue) return;
 
     setTaskValue('');
     console.log(taskValue);
