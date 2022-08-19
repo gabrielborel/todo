@@ -1,25 +1,24 @@
 import classNames from 'classnames';
 import { Check, Trash } from 'phosphor-react';
+import { ITask } from '../../../interfaces/Task';
 import styles from './Task.module.scss';
 
 interface TaskProps {
-  completed: boolean;
-  id: number;
-  content: string;
+  task: ITask;
 }
 
-export const Task = ({ id, content, completed }: TaskProps) => {
+export const Task = ({ task }: TaskProps) => {
   return (
     <div
       className={classNames(styles.task, {
-        [styles.taskCompleted]: completed,
+        [styles.taskCompleted]: task.completed,
       })}
     >
-      <button key={id} className={styles.checkBox}>
-        {completed ? <Check size={14} weight='bold' /> : ''}
+      <button key={task.id} className={styles.checkBox}>
+        {task.completed ? <Check size={14} weight='bold' /> : ''}
       </button>
 
-      <p className={styles.taskContent}>{content}</p>
+      <p className={styles.taskContent}>{task.content}</p>
 
       <button className={styles.deleteTask}>
         <Trash size={20} />
