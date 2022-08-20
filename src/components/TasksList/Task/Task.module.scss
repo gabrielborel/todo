@@ -9,8 +9,8 @@
   gap: 0.75rem;
 
   .checkBox {
-    width: 20px;
-    height: 20px;
+    width: 19px;
+    height: 19px;
     border-radius: 100%;
     appearance: none;
     background: transparent;
@@ -39,6 +39,7 @@
   }
 
   .taskContent {
+    width: 100%;
     color: var(--gray-100);
     font-size: 0.875rem;
     line-height: 20px;
