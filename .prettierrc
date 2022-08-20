@@ -1,4 +1,6 @@
 {
+  "filepath": "/home/gabriel/codes/rocketseat-react/01-desafio-todo/src/main.tsx",
+  "parser": "typescript",
   "arrowParens": "always",
   "bracketSpacing": true,
   "endOfLine": "lf",
@@ -15,7 +17,5 @@
   "tabWidth": 2,
   "trailingComma": "es5",
   "useTabs": false,
-  "vueIndentScriptAndStyle": false,
-  "filepath": "/home/gabriel/codes/rocketseat-react/01-desafio-todo/src/main.tsx",
-  "parser": "typescript"
+  "vueIndentScriptAndStyle": false
 }
