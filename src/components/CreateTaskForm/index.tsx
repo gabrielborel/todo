@@ -1,26 +1,28 @@
 import styles from './CreateTask.module.scss';
 import { PlusCircle } from 'phosphor-react';
 import { ChangeEvent, FormEvent, useState } from 'react';
+import { useAddTask } from '../../state/hooks/useAddTask';
 
 export const CreateTaskForm = () => {
-  const [taskValue, setTaskValue] = useState('');
+  const [taskContent, setTaskContent] = useState('');
+  const addTask = useAddTask();
 
   const handleTaskInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setTaskValue(e.target.value);
+    setTaskContent(e.target.value);
   };
 
   const handleCreateNewTask = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!taskValue) return;
+    if (!taskContent) return;
 
-    setTaskValue('');
-    console.log(taskValue);
+    addTask({ content: taskContent, completed: false });
+    setTaskContent('');
   };
 
   return (
     <form onSubmit={handleCreateNewTask} className={styles.container}>
       <input
-        value={taskValue}
+        value={taskContent}
         onChange={handleTaskInputChange}
         className={styles.inputTask}
         type='text'

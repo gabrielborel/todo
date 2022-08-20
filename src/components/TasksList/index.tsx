@@ -1,38 +1,24 @@
-import { useState } from 'react';
 import { ClipboardText } from 'phosphor-react';
 import styles from './Tasks.module.scss';
 import { Task } from './Task';
+import { useRecoilValue } from 'recoil';
+import { tasksState } from '../../state/atom';
+import { completedTasksState, createdTasksState } from '../../state/selectors';
 
 export const TasksList = () => {
-  const [tasks, setTasks] = useState([
-    {
-      id: `1`,
-      content:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas magni, nulla autblanditiis deserunt',
-      completed: false,
-    },
-    {
-      id: `2`,
-      content:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas magni, nulla autblanditiis deserunt',
-      completed: true,
-    },
-    {
-      id: `3`,
-      content:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas magni, nulla autblanditiis deserunt',
-      completed: false,
-    },
-  ]);
+  const tasks = useRecoilValue(tasksState);
+  const createdTasksCount = useRecoilValue(createdTasksState);
+  const completedTasksCount = useRecoilValue(completedTasksState);
 
   return (
     <section className={styles.container}>
       <div className={styles.tasksStats}>
         <strong className={styles.createdTasks}>
-          Tarefas criadas <span>0</span>
+          Tarefas criadas <span>{createdTasksCount}</span>
         </strong>
         <strong className={styles.completedTasks}>
-          Concluídas <span>0</span>
+          Concluídas{' '}
+          <span>{!createdTasksCount ? 0 : `${completedTasksCount} de ${createdTasksCount}`}</span>
         </strong>
       </div>
 
@@ -44,7 +30,7 @@ export const TasksList = () => {
             <p>Crie tarefas e organize seus itens a fazer</p>
           </div>
         ) : (
-          tasks.map((task) => <Task task={task} />)
+          tasks.map((task) => <Task key={task.id} task={task} />)
         )}
       </div>
     </section>
